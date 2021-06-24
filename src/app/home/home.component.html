@@ -1,0 +1,43 @@
+<p>home works!</p>
+<form class="example-form" [formGroup]="form" (ngSubmit)='onsubmit()'>
+
+  <div >
+
+    <label mat-label> Name : </label>
+    <input matInput type="text"  type='text' formControlName='name'>
+
+  </div>
+  <div>
+
+    <label mat-label> email :  </label>
+    <input matInput  type='email' formControlName='email'>
+
+
+  </div>
+
+  <div formArrayName="mobile">
+
+
+    <button mat-raised-button color="primary" (click)="add()">Add another number</button>
+      <br><br>
+    <div *ngFor="let mb of mobiles.controls;let i=index" >
+
+
+      <label mat-label>Mobile No :  </label>
+      <input matInput  [formControlName]="i" type="text">&nbsp;<span></span>
+      &nbsp;&nbsp;
+      <button mat-raised-button  color="warn" *ngIf="i !=0 " (click)="remove(i)">-</button>
+      <br>
+      <br>
+
+   </div>
+
+  </div>
+  <div>
+    <br>
+
+    <button mat-raised-button color="accent" type='submit'>submit</button>
+
+  </div>
+
+</form>
