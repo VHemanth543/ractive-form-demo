@@ -8,12 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import { DummyComponent } from './dummy/dummy.component'
+import { NestedComponent } from './nested/nested.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DummyComponent
+    NestedComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,7 @@ import { DummyComponent } from './dummy/dummy.component'
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

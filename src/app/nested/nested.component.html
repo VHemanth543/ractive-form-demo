@@ -1,0 +1,47 @@
+<p>nested works!</p>
+
+
+
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="employees">
+    <div *ngFor="let employee of employees().controls; let empIndex=index">
+      <div
+        [formGroupName]="empIndex"
+        style="border: 1px solid blue; padding: 10px; min-width: 600px; margin: 5px;">
+        <button mat-raised-button color="warm" (click)="removeEmployee(empIndex)">Remove</button><br>
+        <mat-label>Component {{empIndex}}  </mat-label><br>
+        <input style="background-color: black; color: white; min-width:100px; max-width : 200px;"  matInput formControlName="compName" placeholder="Enter component name">
+
+
+
+        <br>
+        <div formArrayName="skills">
+          <div
+            *ngFor="let skill of employeeSkills(empIndex).controls; let skillIndex=index"
+          >
+            <div [formGroupName]="skillIndex" style="padding-top:10px">
+              <mat-form-field style="background-color: black; color: white;" class="example-full-width" >
+                <mat-label>Skills</mat-label>
+                <input matInput formControlName="skill" placeholder="Ex. computing">
+              </mat-form-field>
+
+              <button *ngIf="skillIndex !=0" mat-raised-button color="warm" (click)="removeEmployeeSkill(empIndex,skillIndex)">
+                Remove
+              </button>
+              <br>
+            </div>
+          </div>
+        </div>
+        <button type="button" mat-raised-button color="primary" (click)="addEmployeeSkill(empIndex)">
+          Add Skill
+        </button>
+        <br>
+      </div>
+    </div>
+    <button type="button" mat-raised-button color="primary" (click)="addEmployee()">Add component</button>
+  </div>
+  <br><br>
+  <button mat-raised-button color="blue" type="submit">submit</button>
+</form>
+
+
