@@ -7,7 +7,7 @@
     <div *ngFor="let employee of employees().controls; let empIndex=index">
       <div
         [formGroupName]="empIndex"
-        style="border: 1px solid blue; padding: 10px; min-width: 600px; margin: 5px;">
+        style="border: 1px solid blue; padding: 10px; min-width: 300px; max-width : 400px; margin: 5px;">
         <button mat-raised-button color="warm" (click)="removeEmployee(empIndex)">Remove</button><br>
         <mat-label>Component {{empIndex}}  </mat-label><br>
         <input style="background-color: black; color: white; min-width:100px; max-width : 200px;"  matInput formControlName="compName" placeholder="Enter component name">
